@@ -1,13 +1,25 @@
 import React,{Component} from 'react';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+  body{
+    margin : 0px;
+    padding : 0px;
+  }
+`;
+
 
 class App extends Component{
   render(){
     return(
-      <Container>
-        <Button>Safe!</Button>
-        <Button danger>Warning!</Button>
-      </Container>
+      <>
+        <GlobalStyle />
+        <Container>
+          <Button>Safe!</Button>
+          <Button danger>Warning!</Button>
+          <Anchor as='a' href="http://www.google.com" target = "_blank">Google</Anchor>
+        </Container>
+      </>
     )
   }
 }
@@ -27,11 +39,16 @@ const Button = styled.button`
   min-height : 100px;
   color : white;
   font-size : 50px;
+  font-weight : 600px;
   $:active,
   $:focus {
     outline : none;
   }
   background-color : ${props =>props.danger ? "red" : "green"}
+`;
+
+const Anchor = styled(Button)`
+  text-decoration : none;
 `;
 
 
