@@ -17,7 +17,7 @@ class App extends Component{
         <Container>
           <Button>Safe!</Button>
           <Button danger>Warning!</Button>
-          <Anchor as='a' href="http://www.google.com" target = "_blank">Google</Anchor>
+          <Anchor as='a' href="https://google.com">Go To Google</Anchor>
         </Container>
       </>
     )
@@ -27,28 +27,29 @@ class App extends Component{
 const Container = styled.div`
   height : 100vh;
   width : 100%;
-  background-color : black;
+  background-color : pink;
   text-align : center;
 `
 
 const Button = styled.button`
-  -webkit-appearance: none;
-  border-radius : 10px;
+  -webkit-appearance:none;
+  border-radius : 50px;
   margin : 30px;
   min-width : 300px;
   min-height : 100px;
   color : white;
   font-size : 50px;
-  font-weight : 600px;
+  font-weight : 600;
   $:active,
   $:focus {
     outline : none;
-  }
-  background-color : ${props =>props.danger ? "red" : "green"}
+  };
+  background-color : ${props =>(props.danger ? "red" : "green")};
 `;
 
 const Anchor = styled(Button)`
-  text-decoration : none;
+  text-decoration: none;
+
 `;
 
 
