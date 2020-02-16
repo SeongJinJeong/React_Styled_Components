@@ -8,6 +8,16 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const Input = styled.input.attrs({
+  "required" : true
+})`
+  border-radius : 5px;
+`;
+
+const AwesomeCard = css`
+  color : black;
+`
+
 
 class App extends Component{
   render(){
@@ -18,6 +28,7 @@ class App extends Component{
           <Button>Safe!</Button>
           <Button danger>Warning!</Button>
           <Anchor as='a' href="https://google.com">Go To Google</Anchor>
+          <Input placeholder="Hello" />
         </Container>
       </>
     )
@@ -57,6 +68,7 @@ const Button = styled.button`
 const Anchor = styled(Button)`
   text-decoration: none;
   padding: 10px;
+  ${AwesomeCard}
 `;
 
 const rotation = keyframes`
