@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
-import styled, { createGlobalStyle, keyframes, css } from 'styled-components';
+import styled, { createGlobalStyle, keyframes, css, ThemeProvider } from 'styled-components';
+import theme from './theme';
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -23,13 +24,15 @@ class App extends Component{
   render(){
     return(
       <>
-        <GlobalStyle />
-        <Container>
-          <Button>Safe!</Button>
-          <Button danger>Warning!</Button>
-          <Anchor as='a' href="https://google.com">Go To Google</Anchor>
-          <Input placeholder="Hello" />
-        </Container>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Container>
+            <Button>Safe!</Button>
+            <Button danger>Warning!</Button>
+            <Anchor as='a' href="https://google.com">Go To Google</Anchor>
+            <Input placeholder="Hello" />
+          </Container>
+        </ThemeProvider>
       </>
     )
   }
@@ -68,7 +71,8 @@ const Button = styled.button`
 const Anchor = styled(Button)`
   text-decoration: none;
   padding: 10px;
-  ${AwesomeCard}
+  ${AwesomeCard};
+  background-color:${props=>props.theme.warningColor}
 `;
 
 const rotation = keyframes`
@@ -76,7 +80,7 @@ const rotation = keyframes`
     transform : rotate(0deg)
   }
   to {
-    transform : rotate(360deg)
+    transform : rotate(360deg);
   }
 `
 
